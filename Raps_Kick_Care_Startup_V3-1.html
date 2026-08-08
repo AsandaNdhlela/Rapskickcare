@@ -1,0 +1,566 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Raps Kick Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f5f5f2;
+        color: #111;
+        font-family: Inter, Arial;
+      }
+      .nav {
+        height: 72px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6%;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        border-bottom: 1px solid #ddd;
+      }
+      .logo {
+        font: 800 22px "Space Grotesk";
+      }
+      .logo span,
+      h1 span {
+        color: #ff7900;
+      }
+      .nav a {
+        margin: 0 12px;
+        text-decoration: none;
+        color: #222;
+        font-weight: 600;
+        font-size: 13px;
+      }
+      .btn {
+        border: 0;
+        border-radius: 30px;
+        padding: 13px 20px;
+        background: #111;
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .orange {
+        background: #ff7900;
+      }
+      .hero {
+        min-height: 650px;
+        padding: 70px 6%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 45px;
+        align-items: center;
+        background:
+          radial-gradient(circle at 85% 20%, #ffd39f, transparent 30%), #fafaf7;
+      }
+      .eyebrow {
+        font-size: 12px;
+        font-weight: 800;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        padding: 9px 13px;
+        display: inline-block;
+      }
+      h1 {
+        font: 700 clamp(48px, 6vw, 82px)/0.95 "Space Grotesk";
+        letter-spacing: -4px;
+        margin: 22px 0;
+      }
+      .lead {
+        color: #6d7076;
+        font-size: 18px;
+        line-height: 1.7;
+        max-width: 570px;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        margin: 28px 0;
+      }
+      .visual {
+        height: 480px;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px #0002;
+        position: relative;
+      }
+      .visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.7s;
+      }
+      .visual:hover img {
+        transform: scale(1.05);
+      }
+      .tag {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: #fff;
+        padding: 14px 17px;
+        border-radius: 15px;
+        font-weight: 800;
+      }
+      .section {
+        max-width: 1250px;
+        margin: auto;
+        padding: 75px 6%;
+      }
+      .section h2 {
+        font: 700 40px "Space Grotesk";
+        letter-spacing: -2px;
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 28px;
+      }
+      .muted {
+        color: #70747b;
+      }
+      .services {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #e5e5e2;
+        border-radius: 22px;
+        padding: 20px;
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px #0001;
+      }
+      .card img {
+        width: 100%;
+        height: 155px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+      .card h3 {
+        font-family: "Space Grotesk";
+        margin-bottom: 5px;
+      }
+      .price {
+        font-size: 25px;
+        font-weight: 800;
+        color: #ff7900;
+      }
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .dark {
+        background: #111;
+        color: #fff;
+        border-radius: 28px;
+        padding: 34px;
+      }
+      .dark p {
+        color: #bbb;
+        line-height: 1.7;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .step {
+        background: #1d1d20;
+        border: 1px solid #333;
+        border-radius: 15px;
+        padding: 15px;
+      }
+      .step b {
+        color: #ff7900;
+        font-size: 24px;
+      }
+      .form {
+        background: #fff;
+        padding: 26px;
+        border-radius: 24px;
+        border: 1px solid #ddd;
+      }
+      .field {
+        margin-bottom: 14px;
+      }
+      .field label {
+        display: block;
+        font-size: 11px;
+        font-weight: 800;
+        margin-bottom: 6px;
+      }
+      .field input,
+      .field select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+      }
+      .dashboard {
+        background: #0d0e10;
+        color: #fff;
+        border-radius: 28px;
+        padding: 26px;
+        box-shadow: 0 25px 60px #0002;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .stat {
+        background: #18191c;
+        border: 1px solid #292a2d;
+        padding: 17px;
+        border-radius: 16px;
+      }
+      .stat small {
+        color: #999;
+      }
+      .stat strong {
+        display: block;
+        font-size: 27px;
+        margin-top: 7px;
+      }
+      .tablebox {
+        overflow: auto;
+        margin-top: 18px;
+        border: 1px solid #292a2d;
+        border-radius: 16px;
+      }
+      .table {
+        width: 100%;
+        min-width: 650px;
+        border-collapse: collapse;
+      }
+      .table th,
+      .table td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid #292a2d;
+        font-size: 13px;
+      }
+      .table th {
+        color: #999;
+      }
+      .status {
+        background: #183b2c;
+        color: #69e0a9;
+        border-radius: 20px;
+        padding: 6px 9px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .warn {
+        background: #4b3215;
+        color: #ffca72;
+      }
+      footer {
+        background: #111;
+        color: #aaa;
+        padding: 30px 6%;
+        display: flex;
+        justify-content: space-between;
+      }
+      @media (max-width: 850px) {
+        .hero,
+        .grid2 {
+          grid-template-columns: 1fr;
+        }
+        .services {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .nav a {
+          display: none;
+        }
+      }
+      @media (max-width: 550px) {
+        .services,
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .actions {
+          flex-direction: column;
+        }
+        .hero {
+          padding-top: 45px;
+        }
+        .visual {
+          height: 380px;
+        }
+        footer {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="logo">RAPS <span>KICK CARE</span></div>
+      <div>
+        <a href="#services">Services</a><a href="#booking">Book</a
+        ><a href="#dashboard">Dashboard</a>
+      </div>
+      <button
+        class="btn orange"
+        onclick="document.querySelector('#booking').scrollIntoView()"
+      >
+        Book a Clean
+      </button>
+    </nav>
+    <header class="hero">
+      <div>
+        <div class="eyebrow">● CAPE TOWN SNEAKER CARE</div>
+        <h1>Keep your<br /><span>kicks fresh.</span></h1>
+        <p class="lead">
+          Professional sneaker cleaning and restoration built for students,
+          sneakerheads and anyone who takes their footwear seriously.
+        </p>
+        <div class="actions">
+          <button
+            class="btn orange"
+            onclick="document.querySelector('#booking').scrollIntoView()"
+          >
+            Book your wash — R50</button
+          ><button
+            class="btn"
+            onclick="document.querySelector('#services').scrollIntoView()"
+          >
+            View services
+          </button>
+        </div>
+        <p class="muted">★★★★★ 5-star service · 081 381 1817</p>
+      </div>
+      <div class="visual">
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
+        />
+        <div class="tag">👟 Clean · Restore · Repeat</div>
+      </div>
+    </header>
+    <section class="section" id="services">
+      <div class="head">
+        <div>
+          <p class="muted">SIMPLE PRICING</p>
+          <h2>Care that fits your budget.</h2>
+        </div>
+        <p class="muted">Glueing & paint: quote after inspection.</p>
+      </div>
+      <div class="services">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80"
+          />
+          <h3>Student Wash</h3>
+          <p class="muted">Everyday campus clean.</p>
+          <div class="price">R50</div>
+        </div>
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=800&q=80"
+          />
+          <h3>Non-Student Wash</h3>
+          <p class="muted">Thorough sneaker clean.</p>
+          <div class="price">R65</div>
+        </div>
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80"
+          />
+          <h3>Full Restoration</h3>
+          <p class="muted">For heavily worn shoes.</p>
+          <div class="price">R150</div>
+        </div>
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=800&q=80"
+          />
+          <h3>Repairs</h3>
+          <p class="muted">Glueing & paint restoration.</p>
+          <div class="price">Quote</div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="grid2">
+        <div class="dark">
+          <p>THE RAPS STANDARD</p>
+          <h2>From dirty to ready.</h2>
+          <p>
+            Every order can be tracked from booking to collection, giving
+            customers confidence and giving the owner one place to manage the
+            business.
+          </p>
+          <div class="steps">
+            <div class="step"><b>01</b><br />Book online</div>
+            <div class="step"><b>02</b><br />Meet at Shuttle Point</div>
+            <div class="step"><b>03</b><br />Collect fresh kicks</div>
+          </div>
+        </div>
+        <div class="card">
+          <p style="font-size: 30px; color: #ff7900">★★★★★</p>
+          <h2>“The plug for clean kicks.”</h2>
+          <p class="muted">
+            A review section will grow as real customers leave feedback.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="booking">
+      <div class="head">
+        <div>
+          <p class="muted">ONLINE BOOKING</p>
+          <h2>Book your clean.</h2>
+        </div>
+      </div>
+      <div class="grid2">
+        <!-- New form start -->
+
+        <div class="form">
+          <form action="https://formspree.io/f/meajepka" method="POST">
+            <div class="field">
+              <label>FULL NAME</label>
+              <input type="text" name="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label>PHONE</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="081 381 1817"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>SERVICE</label>
+              <select name="service">
+                <option>Student Wash — R50</option>
+                <option>Non-Student Wash — R65</option>
+                <option>Full Restoration — R150</option>
+                <option>Glueing — Quote</option>
+                <option>Paint — Quote</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>COLLECTION</label>
+              <select name="collection">
+                <option>Shuttle Point</option>
+                <option>22 Barrack Street</option>
+              </select>
+            </div>
+
+            <button
+              class="btn orange"
+              style="width: 100%"
+              type="submit"
+              id="submitBtn"
+            >
+              Submit Order
+            </button>
+
+            <p id="formStatus" style="margin-top: 10px; display: none"></p>
+          </form>
+        </div>
+        <!-- New form end* -->
+        <div class="dark">
+          <p>CONTACT</p>
+          <h2>Let's get your kicks right.</h2>
+          <p>
+            WhatsApp / Call: <strong style="color: white">081 381 1817</strong>
+          </p>
+          <p>📍 22 Barrack Street<br />Collection meet-up: Shuttle Point</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="dashboard">
+      <div class="dashboard">
+        <h2 style="font-family: &quot;Space Grotesk&quot;">
+          Raps Kick Care / Owner Dashboard
+        </h2>
+        <p style="color: #999">Order management overview</p>
+        <div class="stats">
+          <div class="stat"><small>ORDERS TODAY</small><strong>12</strong></div>
+          <div class="stat">
+            <small>REVENUE TODAY</small><strong>R680</strong>
+          </div>
+          <div class="stat"><small>IN PROGRESS</small><strong>4</strong></div>
+          <div class="stat"><small>REVIEWS</small><strong>4.9 ★</strong></div>
+        </div>
+        <div class="tablebox">
+          <table class="table">
+            <tr>
+              <th>ORDER</th>
+              <th>CUSTOMER</th>
+              <th>SERVICE</th>
+              <th>AMOUNT</th>
+              <th>STATUS</th>
+            </tr>
+            <tr>
+              <td>#RKC-1048</td>
+              <td>Thabo M.</td>
+              <td>Student Wash</td>
+              <td>R50</td>
+              <td><span class="status">Ready</span></td>
+            </tr>
+            <tr>
+              <td>#RKC-1047</td>
+              <td>Amanda K.</td>
+              <td>Full Restoration</td>
+              <td>R150</td>
+              <td><span class="status warn">In progress</span></td>
+            </tr>
+            <tr>
+              <td>#RKC-1046</td>
+              <td>Lebo P.</td>
+              <td>Non-Student Wash</td>
+              <td>R65</td>
+              <td><span class="status">Collected</span></td>
+            </tr>
+            <tr>
+              <td>#RKC-1045</td>
+              <td>Jason N.</td>
+              <td>Student Wash</td>
+              <td>R50</td>
+              <td><span class="status warn">Awaiting drop-off</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div>
+        <b style="color: white">RAPS KICK CARE</b><br />Fresh Kicks. Fresh
+        Confidence.
+      </div>
+      <div>081 381 1817 · 22 Barrack Street · Shuttle Point</div>
+    </footer>
+  </body>
+
+  <script src="script.js"></script>
+</html>
